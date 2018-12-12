@@ -13,10 +13,22 @@
 
     <script type="text/babel">
        class Name extends React.Component{
+         constructor(props){
+           super(props);
+           this.state = {name: 'Dylan'};
+           this.changeName = this.changeName.bind(this); //I left off here and didnt know exact what to do
+         }
+      changeName(){
+        const newName = this.state.name == 'Dylan' ?
+        'not Dylan' : 'Dylan';
+          this.setState ({name: newName});
+      }
+
          render(){
            return(
              <div>
-               <h1>Dylan Landon</h1>
+               <h1>Hi, my name is {this.state.name}!</h1>
+               <button onClick={this.changeName}>Click Me</button>
              </div>
            );
          }
